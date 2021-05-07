@@ -11,7 +11,9 @@ module.exports = {
       nama_tugas: {
         type: Sequelize.STRING,
         allowNull: false
-      }
+      },
+      createdAt: Sequelize.DATE,
+      updateAt: Sequelize.DATE
     });
     await queryInterface.createTable('Subtugas', {
       id_subtugas: {
@@ -26,7 +28,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       durasi: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DATE
       },
       skala_pemahaman: {
         type: Sequelize.STRING
@@ -38,14 +40,16 @@ module.exports = {
         type: Sequelize.STRING
       },
       waktu_selesai: {
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       },
       status_subtugas: {
         type: Sequelize.STRING
       },
       tenggat: {
-        type: Sequelize.STRING
-      }
+        type: Sequelize.DATE
+      },
+      createdAt: Sequelize.DATE,
+      updateAt: Sequelize.DATE
     });
     await queryInterface.createTable('Kriteria', {
       status_progress: {
@@ -62,7 +66,9 @@ module.exports = {
       },
       status_lampiran: {
         type: Sequelize.BOOLEAN
-      }
+      },
+      createdAt: Sequelize.DATE,
+      updateAt: Sequelize.DATE
     });
   },
 

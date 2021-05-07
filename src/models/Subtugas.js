@@ -5,7 +5,8 @@ const Subtugas = db.define('Subtugas', {
   id_subtugas: {
     type: Sequelize.INTEGER,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true
   },
   nama_subtugas: {
     type: Sequelize.STRING
