@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false
       },
       createdAt: Sequelize.DATE,
-      updateAt: Sequelize.DATE
+      updatedAt: Sequelize.DATE
     });
     await queryInterface.createTable('Subtugas', {
       id_subtugas: {
@@ -51,7 +51,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       createdAt: Sequelize.DATE,
-      updateAt: Sequelize.DATE
+      updatedAt: Sequelize.DATE
     });
     await queryInterface.createTable('Kriteria', {
       id_kriteria: {
@@ -76,7 +76,7 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       createdAt: Sequelize.DATE,
-      updateAt: Sequelize.DATE
+      updatedAt: Sequelize.DATE
     });
   },
 

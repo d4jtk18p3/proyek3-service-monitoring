@@ -27,7 +27,7 @@ export const postNewTugas = async (req, res, next) => {
 
 export const getTugasById = async (req, res, next) => {
     try {
-        const { id_tugas } = req.params
+        const id_tugas = req.params.id
         const tugas = await TugasDAO.findTugasById(id_tugas)
         res.status(200).json({
             message: 'get tugas by id sukses',

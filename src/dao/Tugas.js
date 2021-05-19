@@ -25,12 +25,8 @@ export const insertOneTugas = async (
 
 export const findTugasById = async (id_tugas) => {
     try {
-        const tugas = await Tugas.findAll({
-            where: {
-                id_tugas
-            }
-        })
-        return tugas[0]
+        const tugas = await Tugas.findByPk(id_tugas)
+        return tugas
     }
     catch (error) {
         return Promise.reject(new Error('Find tugas by id gagal'))
