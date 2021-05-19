@@ -5,7 +5,7 @@ module.exports = {
     await queryInterface.addColumn(
         'Subtugas',
         'id_tugas', {
-            type: Sequelize.Integer,
+            type: Sequelize.INTEGER,
             allowNull: false,
             references: {
                 model: 'Tugas',
@@ -17,11 +17,9 @@ module.exports = {
         'id_studi', {
             type: Sequelize.INTEGER,
             allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
             references: {
                 model: 'Studi',
-                key: 'id_studi'
+                key: 'id'
             },
         });
     await queryInterface.addColumn(
@@ -29,11 +27,9 @@ module.exports = {
         'id_perkuliahan', {
             type: Sequelize.INTEGER,
             allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
             references: {
                 model: 'Perkuliahan',
-                key: 'id_perkuliahan'
+                key: 'id'
             }
         });
     await queryInterface.addColumn(
@@ -41,8 +37,6 @@ module.exports = {
         'id_subtugas', {
             type: Sequelize.INTEGER,
             allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
             references: {
                 model: 'Subtugas',
                 key: 'id_subtugas'
@@ -51,18 +45,22 @@ module.exports = {
     await queryInterface.addColumn(
         'Kriteria',
         'nim', {
-            type: Sequelize.INTEGER,
+            type: Sequelize.STRING(15),
             allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
             references: {
                 model: 'Mahasiswa',
                 key: 'nim'
             }
         });
+    await queryInterface.addConstraint('Kriteria', {
+        fields: ['id_subtugas', 'nim'],
+        type: 'Unique',
+        name: 'c_unique0_kriteria'
+    })
   },
 
   down: async (queryInterface, Sequelize) => {
+    await queryInterface.removeConstraint('Kriteria', 'c_unique0_kriteria')
     await queryInterface.removeColumn('Kriteria', 'nim');
     await queryInterface.removeColumn('Kriteria', 'id_subtugas')
     await queryInterface.removeColumn('Tugas', 'id_perkuliahan')

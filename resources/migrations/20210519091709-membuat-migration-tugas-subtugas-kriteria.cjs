@@ -6,7 +6,8 @@ module.exports = {
       id_tugas: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
       },
       nama_tugas: {
         type: Sequelize.STRING,
@@ -19,7 +20,8 @@ module.exports = {
       id_subtugas: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
       },
       nama_subtugas: {
         type: Sequelize.STRING
@@ -52,6 +54,12 @@ module.exports = {
       updateAt: Sequelize.DATE
     });
     await queryInterface.createTable('Kriteria', {
+      id_kriteria: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
+      },
       status_progress: {
         type: Sequelize.BOOLEAN
       },
