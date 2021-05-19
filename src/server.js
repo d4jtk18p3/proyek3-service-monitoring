@@ -7,6 +7,7 @@ import bodyParser from 'body-parser'
 import dosenRouter from './routes/Dosen'
 import mahasiswaRouter from './routes/Mahasiswa'
 import userRouter from './routes/User'
+import tugasRouter from './routes/Tugas'
 
 const app = express()
 app.use(cors())
@@ -18,6 +19,7 @@ app.use(morgan('dev'))
 app.use('/dosen', dosenRouter)
 app.use('/mahasiswa', mahasiswaRouter)
 app.use('/user', userRouter)
+app.use('/monitoring', tugasRouter)
 
 // error handling
 app.use((error, req, res, next) => {

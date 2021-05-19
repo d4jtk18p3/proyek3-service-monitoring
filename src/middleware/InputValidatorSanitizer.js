@@ -58,3 +58,16 @@ export const deleteDosenByNIP = [
     })
   })
 ]
+
+export const postNewTugas = [
+  body('id_tugas', 'id_tugas wajib diisi').exists().bail(),
+  body('id_tugas').custom((value) => {
+    return TugasDAO.findTugasById(value).then((tugas) => {
+      if (tugas) {
+        return Promise.reject(new Error('id_tugas sudah terdaftar'))
+      }
+    })
+  }),
+  body('nama_tugas', 'nama_tugas wajib diisi').exists(),
+  body('id_perkuliahan', 'id_perkuliahan wajib diisi').exists(),
+]
