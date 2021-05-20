@@ -5,18 +5,18 @@ export const insertOneTugas = async (
     id_tugas,
     nama_tugas,
     createdAt,
-    UpdateAt,
+    updatedAt,
     id_perkuliahan
     ) => {
         try {
             const tugas = await Tugas.create({
-            id_tugas,
-            nama_tugas,
-            createdAt,
-            UpdateAt,
-            id_perkuliahan
-        })
-        return tugas
+                id_tugas,
+                nama_tugas,
+                createdAt,
+                updatedAt,
+                id_perkuliahan
+            })
+            return tugas
         }
             catch (error) {
             console.error(error)

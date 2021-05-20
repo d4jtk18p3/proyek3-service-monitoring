@@ -33,10 +33,10 @@ module.exports = {
         type: Sequelize.DATE
       },
       skala_pemahaman: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       catatan: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       lampiran: {
         type: Sequelize.STRING
