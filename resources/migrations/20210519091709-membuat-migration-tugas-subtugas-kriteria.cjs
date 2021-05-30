@@ -6,20 +6,22 @@ module.exports = {
       id_tugas: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
       },
       nama_tugas: {
         type: Sequelize.STRING,
         allowNull: false
       },
       createdAt: Sequelize.DATE,
-      updateAt: Sequelize.DATE
+      updatedAt: Sequelize.DATE
     });
     await queryInterface.createTable('Subtugas', {
       id_subtugas: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
       },
       nama_subtugas: {
         type: Sequelize.STRING
@@ -49,9 +51,15 @@ module.exports = {
         type: Sequelize.DATE
       },
       createdAt: Sequelize.DATE,
-      updateAt: Sequelize.DATE
+      updatedAt: Sequelize.DATE
     });
     await queryInterface.createTable('Kriteria', {
+      id_kriteria: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
+      },
       status_progress: {
         type: Sequelize.BOOLEAN
       },
@@ -68,7 +76,7 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       createdAt: Sequelize.DATE,
-      updateAt: Sequelize.DATE
+      updatedAt: Sequelize.DATE
     });
   },
 

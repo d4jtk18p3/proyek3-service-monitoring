@@ -60,11 +60,11 @@ const setAssociations = () => {
   tugas.hasMany(subtugas, {
     foreignKey: 'id_tugas'
   })
-  subtugas.belongsToMany(kriteria, {
-    through: 'id_subtugas'
+  subtugas.hasOne(kriteria, {
+    foreignKey: 'id_subtugas'
   })
-  mahasiswa.belongsToMany(kriteria, {
-    through: 'id_mahasiswa'
+  dosen.hasMany(kriteria, {
+    foreignKey: 'nip'
   })
 }
 
