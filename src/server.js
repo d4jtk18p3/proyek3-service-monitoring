@@ -7,10 +7,7 @@ import bodyParser from 'body-parser'
 import dosenRouter from './routes/Dosen'
 import mahasiswaRouter from './routes/Mahasiswa'
 import userRouter from './routes/User'
-<<<<<<< Updated upstream
-=======
 import monitoringRouter from './routes/Monitoring'
->>>>>>> Stashed changes
 
 const app = express()
 app.use(cors())
@@ -22,10 +19,7 @@ app.use(morgan('dev'))
 app.use('/dosen', dosenRouter)
 app.use('/mahasiswa', mahasiswaRouter)
 app.use('/user', userRouter)
-<<<<<<< Updated upstream
-=======
 app.use('/monitoring', monitoringRouter)
->>>>>>> Stashed changes
 
 // error handling
 app.use((error, req, res, next) => {

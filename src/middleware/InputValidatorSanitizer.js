@@ -1,12 +1,9 @@
 import { body, param } from 'express-validator'
 import * as DosenDAO from '../dao/Dosen'
 import * as MahasiswaDAO from '../dao/Mahasiswa'
-<<<<<<< Updated upstream
-=======
 import * as TugasDAO from '../dao/Tugas'
 import * as SubtugasDAO from '../dao/Subtugas'
 import * as KriteriaDAO from '../dao/Kriteria'
->>>>>>> Stashed changes
 
 // CATATAN : File ini berisi middleware untuk memvalidasi dan sanitasi inputan yang dikirim oleh user
 
@@ -64,8 +61,6 @@ export const deleteDosenByNIP = [
     })
   })
 ]
-<<<<<<< Updated upstream
-=======
 
 export const postNewTugas = [
   body('id_tugas', 'id_tugas wajib diisi').exists().bail(),
@@ -143,4 +138,3 @@ export const postNewKriteria = [
     })
   })
 ]
->>>>>>> Stashed changes
