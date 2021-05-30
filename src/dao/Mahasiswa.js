@@ -1,11 +1,11 @@
 import Mahasiswa from '../models/Mahasiswa'
 import sequelize from '../db.js'
 
-export const findOneMahasiswaByNIM = async (NIM) => {
+export const findOneMahasiswaByNIM = async (nim) => {
   try {
     const mahasiswa = await Mahasiswa.findAll({
       where: {
-        NIM
+        nim: nim
       }
     })
     return mahasiswa[0]
@@ -100,5 +100,19 @@ export const deleteMahasiswabyId = async (mahasiswaId) => {
     return result
   } catch (error) {
     console.log(error)
+  }
+}
+
+export const findMahasiswaByClass = async (kode_kelas) => {
+  try {
+    const mahasiswa = await Mahasiswa.findAll({
+      where: {
+        kode_kelas
+      },
+      order: [['nama_mahasiswa', 'ASC']]
+    })
+    return mahasiswa
+  } catch (error) {
+    console.error(error)
   }
 }

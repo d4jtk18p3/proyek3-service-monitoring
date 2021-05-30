@@ -129,3 +129,18 @@ export const searchMahasiswaByNIM = async (req, res, next) => {
     next(error)
   }
 }
+
+export const searchMahasiswaByClass = async (req, res, next) => {
+  try {
+    const { kode_kelas } = req.params
+    const mahasiswa = await MahasiswaDAO.findMahasiswaByClass(kode_kelas)
+    res.status(200).json({
+      message: 'find Mahasiswa by class success',
+      data: {
+        mahasiswa
+      }
+    })
+  } catch (error) {
+    next(error)
+  }
+}

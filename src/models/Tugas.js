@@ -10,6 +10,10 @@ const Tugas = db.define('Tugas', {
   nama_tugas: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  id_perkuliahan: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   }
 })
 
