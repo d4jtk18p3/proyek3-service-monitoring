@@ -51,18 +51,24 @@ export const getTugasById = async (req, res, next) => {
 
 export const getTugasByMatkul = async (req, res, next) => {
   try {
-        const id_matkul = req.params.id
+        const id_matkul = req.params.id_matkul
+        const id_perkuliahan = req.params.id_perkuliahan
         const perkuliahan = await PerkuliahaDAO.findPerkuliahanByMatkul(id_matkul)
-        var i
+        var i,j
         var listTugas = []
         for (i = 0; i < perkuliahan.length; i++){
           var tugas = await TugasDAO.findTugasByPerkuliahan(perkuliahan[i].id)
-          listTugas.push(tugas)
+          for (j = 0; j < tugas.length; j++){
+            if (tugas[j].id_perkuliahan == id_perkuliahan){
+              listTugas.push(tugas[j].nama_tugas)
+            }
+          }
         }
         res.status(200).json({
             message: 'get tugas by matkul sukses',
             data: {
-                listTugas
+              perkuliahan,
+              listTugas
             }
         })
     }

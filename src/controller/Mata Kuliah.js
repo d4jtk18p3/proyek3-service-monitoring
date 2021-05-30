@@ -10,6 +10,7 @@ export const getMatkulAjarByDosen = async (req, res) => {
         const idKelas = req.params.id_kelas
         const pengajar = await PengajarDAO.findPengajarByNIP(nip)
         var i
+        var id_perkuliahan = []
         var listIdPerkuliahan = []
         var listMatkul = []
         for (i = 0; i < pengajar.length; i++){
@@ -20,13 +21,15 @@ export const getMatkulAjarByDosen = async (req, res) => {
             var perkuliahan = await PerkuliahaDAO.findPerkuliahanById(listIdPerkuliahan[i])
             if (perkuliahan.kode_kelas == idKelas){
                 var matkul = await MatkulDAO.findMatkulById(perkuliahan.id_mata_kuliah)
-                listMatkul.push(matkul.nama_mata_kuliah)
+                listMatkul.push(matkul)
+                id_perkuliahan.push(perkuliahan.id)
             }
         }
         res.status(200).json({
             message: 'get matkul by dosen sukses',
             data: {
-                listMatkul
+                listMatkul,
+                id_perkuliahan
             }
         })
     }

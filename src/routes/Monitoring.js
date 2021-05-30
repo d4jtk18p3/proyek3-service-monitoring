@@ -16,7 +16,7 @@ router.post('/dosen/new-task-kriteria', ValidatorSanitizer.postNewKriteria, Krit
 router.get('/common/task-kriteria/:id_kriteria', KriteriaController.getKriteriaById)
 router.get('/dosen/matkul/:nip/:id_kelas', MatkulController.getMatkulAjarByDosen)
 router.get('/dosen/kelas/:nip', KelasController.getKelasAjarByDosen)
-router.get('/common/tugasByMatkul/:id', TugasController.getTugasByMatkul)
+router.get('/common/tugasByMatkul/:id_matkul/:id_perkuliahan', TugasController.getTugasByMatkul)
 router.get('/common/mahasiswaByTugas/:id', TugasController.getAllMahasiswaAssignedTugas)
 
 
