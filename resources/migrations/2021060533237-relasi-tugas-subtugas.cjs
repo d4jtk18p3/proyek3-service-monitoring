@@ -47,7 +47,7 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.removeColumn('Subtugas', 'id');
-    await queryInterface.removeColumn('Subtugas', 'id_tugas');
+    await queryInterface.removeColumn('Subtugas', 'id');
     await queryInterface.removeColumn('Tugas', 'nip');
     await queryInterface.removeColumn('Tugas', 'id');
   }
