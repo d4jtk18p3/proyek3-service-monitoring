@@ -10,6 +10,21 @@ const Tugas = db.define('Tugas', {
   nama_tugas: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  status_progress: {
+    type: Sequelize.BOOLEAN
+  },
+  status_durasi: {
+    type: Sequelize.BOOLEAN
+  },
+  status_skala: {
+    type: Sequelize.BOOLEAN
+  },
+  status_catatan: {
+    type: Sequelize.BOOLEAN
+  },
+  status_lampiran: {
+    type: Sequelize.BOOLEAN
   }
 })
 
