@@ -2,7 +2,7 @@ import Sequelize from 'sequelize'
 import db from '../db'
 
 const Tugas = db.define('Tugas', {
-  id_tugas: {
+  id: {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true

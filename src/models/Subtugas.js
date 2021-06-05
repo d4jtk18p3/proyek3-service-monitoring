@@ -2,7 +2,7 @@ import Sequelize from 'sequelize'
 import db from '../db'
 
 const Subtugas = db.define('Subtugas', {
-  id_subtugas: {
+  id: {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,

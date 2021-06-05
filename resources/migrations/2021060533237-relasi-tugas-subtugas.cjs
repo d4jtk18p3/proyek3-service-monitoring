@@ -24,12 +24,12 @@ module.exports = {
         });
     await queryInterface.addColumn(
         'Subtugas',
-        'id_tugas', {
+        'id', {
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
                 model: 'Tugas',
-                key: 'id_tugas'
+                key: 'id'
             },
         });
     await queryInterface.addColumn(

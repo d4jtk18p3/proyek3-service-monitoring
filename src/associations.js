@@ -8,7 +8,6 @@ const jabatan = require('./models/Jabatan')
 const jurusan = require('./models/Jurusan')
 const tugas = require('./models/Tugas')
 const subtugas = require('./models/Subtugas')
-const kriteria = require('./models/Kriteria')
 const studi = require('./modeks/Studi')
 
 const setAssociations = () => {
@@ -52,19 +51,16 @@ const setAssociations = () => {
     foreignKey: 'kode_jurusan'
   })
   perkuliahan.hasMany(tugas, {
-    foreignKey: 'id_perkuliahan'
+    foreignKey: 'id'
   })
-  studi.hasMany(subtugas, {
-    foreignKey: 'id_studi'
+  dosen.hasMany(tugas, {
+    foreignKey: 'nip'
   })
   tugas.hasMany(subtugas, {
-    foreignKey: 'id_tugas'
+    foreignKey: 'id'
   })
-  subtugas.hasOne(kriteria, {
-    foreignKey: 'id_subtugas'
-  })
-  dosen.hasMany(kriteria, {
-    foreignKey: 'nip'
+  studi.hasMany(subtugas, {
+    foreignKey: 'id'
   })
 }
 

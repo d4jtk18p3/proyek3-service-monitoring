@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Tugas', {
-      id_tugas: {
+      id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true
@@ -31,7 +31,7 @@ module.exports = {
       updatedAt: Sequelize.DATE
     })
     await queryInterface.createTable('Subtugas', {
-      id_subtugas: {
+      id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
