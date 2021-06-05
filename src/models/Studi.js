@@ -8,6 +8,13 @@ const Studi = db.define('Studi', {
     allowNull: false,
     primaryKey: true,
     autoIncrement: true
+  },
+  id_perkuliahan: {
+    type: Sequelize.INTEGER
+  },
+  id_mahasiswa: {
+    type: Sequelize.STRING(15),
+    allowNull: false
   }
 })
 

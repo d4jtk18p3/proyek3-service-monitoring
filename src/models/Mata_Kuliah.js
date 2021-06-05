@@ -25,6 +25,10 @@ const mataKuliah = db.define('Mata_Kuliah', {
   sks_praktek: {
     type: Sequelize.INTEGER,
     allowNull: true
+  },
+  kode_program_studi: {
+    type: Sequelize.STRING(15),
+    allowNull: false
   }
 })
 
