@@ -4,7 +4,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.addColumn(
         'Tugas',
-        'id', {
+        'id_perkuliahan', {
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
@@ -24,7 +24,7 @@ module.exports = {
         });
     await queryInterface.addColumn(
         'Subtugas',
-        'id', {
+        'id_tugas', {
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
@@ -34,7 +34,7 @@ module.exports = {
         });
     await queryInterface.addColumn(
         'Subtugas',
-        'id', {
+        'id_studi', {
             type: Sequelize.INTEGER,
             allowNull: false,
             autoIncrement: true,
@@ -46,9 +46,9 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn('Subtugas', 'id');
-    await queryInterface.removeColumn('Subtugas', 'id');
+    await queryInterface.removeColumn('Subtugas', 'id_studi');
+    await queryInterface.removeColumn('Subtugas', 'id_tugas');
     await queryInterface.removeColumn('Tugas', 'nip');
-    await queryInterface.removeColumn('Tugas', 'id');
+    await queryInterface.removeColumn('Tugas', 'id_perkuliahan');
   }
 };
