@@ -1,15 +1,12 @@
-const mataKuliah = require('./models/Mata_Kuliah')
-const programStudi = require('./models/Program_Studi')
-const mahasiswa = require('./models/Mahasiswa')
-const kelas = require('./models/Kelas')
-const perkuliahan = require('./models/Perkuliahan')
-const dosen = require('./models/Dosen')
-const jabatan = require('./models/Jabatan')
-const jurusan = require('./models/Jurusan')
-const tugas = require('./models/Tugas')
-const subtugas = require('./models/Subtugas')
-const kriteria = require('./models/Kriteria')
-const studi = require('./modeks/Studi')
+const mataKuliah = require('@proyek3/postgres-database/models/Mata_Kuliah')
+const programStudi = require('@proyek3/postgres-database/models/Program_Studi')
+const mahasiswa = require('@proyek3/postgres-database/models/Mahasiswa')
+const kelas = require('@proyek3/postgres-database/models/Kelas')
+const perkuliahan = require('@proyek3/postgres-database/models/Perkuliahan')
+const dosen = require('@proyek3/postgres-database/models/Dosen')
+const jabatan = require('@proyek3/postgres-database/models/Jabatan')
+const jurusan = require('@proyek3/postgres-database/models/Jurusan')
+const studi = require('./models/Studi')
 
 const setAssociations = () => {
   programStudi.hasMany(mataKuliah, {
@@ -23,6 +20,15 @@ const setAssociations = () => {
   })
   kelas.hasMany(perkuliahan, {
     foreignKey: 'kode_kelas'
+  })
+  mataKuliah.hasMany(perkuliahan, {
+    foreignKey: 'id'
+  })
+  perkuliahan.hasMany(studi, {
+    foreignKey: 'id'
+  })
+  mahasiswa.hasMany(studi, {
+    foreignKey: 'id'
   })
   dosen.belongsToMany(perkuliahan, {
     through: 'Pengajar'

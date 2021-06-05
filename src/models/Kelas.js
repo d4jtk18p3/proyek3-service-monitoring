@@ -15,11 +15,11 @@ const Kelas = db.define('Kelas', {
     unique: true
   },
   nip: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING(30),
     allowNull: false
   },
   tahun: {
-    type: Sequelize.STRING(9),
+    type: Sequelize.INTEGER,
     allowNull: false
   }
 })

@@ -5,7 +5,7 @@ module.exports = {
     await queryInterface.addColumn(
         'Subtugas',
         'id_tugas', {
-            type: Sequelize.Integer,
+            type: Sequelize.INTEGER,
             allowNull: false,
             references: {
                 model: 'Tugas',

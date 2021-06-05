@@ -1,5 +1,5 @@
-import Dosen from '../models/Dosen.js'
-import sequelize from '../db.js'
+import Dosen from '@proyek3/postgres-database/models/Dosen'
+// import sequelize from '@proyek3/postgres-database/db'
 
 /*
     CATATAN :
@@ -7,26 +7,16 @@ import sequelize from '../db.js'
   untuk mendapatkan data yang berkaitan dengan dosen
 */
 
-export const insertOneDosen = async (
-  NIP,
-  namaDosen,
-  jabatan,
-  email,
-  permissions,
-  username
-) => {
+export const insertOneDosen = async (NIP, namaDosen, idJabatan) => {
   try {
     const dosen = await Dosen.create({
-      NIP,
+      nip: NIP,
       nama_dosen: namaDosen,
-      jabatan,
-      email,
-      permissions,
-      username
+      id_jabatan: idJabatan
     })
     return dosen
   } catch (error) {
-    return Promise.reject(new Error('Insert dosen gagal'))
+    console.log(error)
   }
 }
 
@@ -52,27 +42,28 @@ export const findAllDosen = async () => {
   }
 }
 
-export const findDosenByJabatan = async (jabatanDosen) => {
+export const findDosenByJabatan = async (idJabatanDosen) => {
   try {
-    if (jabatanDosen === '') {
-      jabatanDosen = null
+    if (idJabatanDosen === '') {
+      idJabatanDosen = null
       const dosenNoJabatan = await Dosen.findAll({
         where: {
-          jabatan: null
+          id_jabatan: null
         },
-        order: [
-          ['nama_dosen', 'ASC']
-        ]
+        order: [['nama_dosen', 'ASC']]
       })
       return dosenNoJabatan
     }
     const dosen = await Dosen.findAll({
       where: {
-        jabatan: sequelize.where(sequelize.fn('LOWER', sequelize.col('jabatan')), 'LIKE', '%' + jabatanDosen.toLowerCase() + '%')
+        // id_jabatan: sequelize.where(
+        //   sequelize.fn('LOWER', sequelize.col('id_jabatan')),
+        //   'LIKE',
+        //   '%' + idJabatanDosen.toLowerCase() + '%'
+        // )
+        id_jabatan: idJabatanDosen
       },
-      order: [
-        ['nama_dosen', 'ASC']
-      ]
+      order: [['nama_dosen', 'ASC']]
     })
     return dosen
   } catch (error) {
@@ -80,11 +71,11 @@ export const findDosenByJabatan = async (jabatanDosen) => {
   }
 }
 
-export const destroyDosenByNip = async (NIP) => {
+export const destroyDosenByNip = async (nip) => {
   try {
     const dosen = await Dosen.destroy({
       where: {
-        NIP
+        nip
       }
     })
     return dosen

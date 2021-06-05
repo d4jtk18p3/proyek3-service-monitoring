@@ -7,6 +7,13 @@ import bodyParser from 'body-parser'
 import dosenRouter from './routes/Dosen'
 import mahasiswaRouter from './routes/Mahasiswa'
 import userRouter from './routes/User'
+import perkuliahanRouter from './routes/Perkuliahan'
+import MataKuliahRouter from './routes/MataKuliah'
+import ProgramStudiRouter from './routes/ProgramStudi'
+import KelasRouter from './routes/Kelas'
+import StudiRouter from './routes/Studi'
+import JabatanRouter from './routes/Jabatan'
+import JurusanRouter from './routes/Jurusan'
 
 const app = express()
 app.use(cors())
@@ -18,6 +25,13 @@ app.use(morgan('dev'))
 app.use('/dosen', dosenRouter)
 app.use('/mahasiswa', mahasiswaRouter)
 app.use('/user', userRouter)
+app.use('/kuliah', perkuliahanRouter)
+app.use('/mata-kuliah', MataKuliahRouter)
+app.use('/program-studi', ProgramStudiRouter)
+app.use('/kelas', KelasRouter)
+app.use('/studi', StudiRouter)
+app.use('/jabatan', JabatanRouter)
+app.use('/jurusan', JurusanRouter)
 
 // error handling
 app.use((error, req, res, next) => {
