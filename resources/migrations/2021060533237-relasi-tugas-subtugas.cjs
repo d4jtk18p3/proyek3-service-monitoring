@@ -15,7 +15,7 @@ module.exports = {
     await queryInterface.addColumn(
         'Tugas',
         'nip', {
-            type: Sequelize.STRING(30),
+            type: Sequelize.INTEGER,
             allowNull: false,
             references: {
                 model: 'Dosen',

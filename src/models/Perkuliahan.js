@@ -14,7 +14,7 @@ const Perkuliahan = db.define('Perkuliahan', {
     allowNull: false
   },
   id_mata_kuliah: {
-    type: Sequelize.STRING(8),
+    type: Sequelize.STRING(12),
     allowNull: true
   },
   kode_kelas: {

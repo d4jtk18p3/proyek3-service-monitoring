@@ -13,7 +13,7 @@ const Studi = db.define('Studi', {
     type: Sequelize.INTEGER
   },
   id_mahasiswa: {
-    type: Sequelize.STRING(15),
+    type: Sequelize.INTEGER,
     allowNull: false
   }
 })

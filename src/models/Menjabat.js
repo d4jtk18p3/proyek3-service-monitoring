@@ -1,20 +1,16 @@
 import Sequelize from 'sequelize'
 import db from '../db'
 
-const Dosen = db.define('Dosen', {
+const Menjabat = db.define('Menjabat', {
   nip: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    primaryKey: true
-  },
-  nama_dosen: {
     type: Sequelize.STRING(30),
     allowNull: false
   },
   id_jabatan: {
     type: Sequelize.INTEGER,
-    allowNull: true
+    allowNull: false
   }
 })
+Menjabat.removeAttribute('id')
 
-export default Dosen
+export default Menjabat

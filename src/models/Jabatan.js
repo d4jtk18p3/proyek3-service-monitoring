@@ -3,9 +3,14 @@ import db from '../db'
 
 const Jabatan = db.define('Jabatan', {
   id: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true
+  },
+  nama_jabatan: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
 })
 

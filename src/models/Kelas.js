@@ -2,10 +2,6 @@ import Sequelize from 'sequelize'
 
 import db from '../db'
 
-import Sequelize from 'sequelize'
-
-import db from '../db'
-
 const Kelas = db.define('Kelas', {
   kode_kelas: {
     type: Sequelize.INTEGER,
@@ -13,11 +9,11 @@ const Kelas = db.define('Kelas', {
     primaryKey: true
   },
   kode_program_studi: {
-    type: Sequelize.STRING(15),
+    type: Sequelize.STRING,
     allowNull: false
   },
   nip: {
-    type: Sequelize.STRING(30),
+    type: Sequelize.INTEGER,
     allowNull: false
   },
   tahun: {

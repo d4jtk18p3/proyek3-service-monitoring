@@ -8,7 +8,7 @@ const Jurusan = db.define('Jurusan', {
     primaryKey: true
   },
   nip: {
-    type: Sequelize.STRING(30),
+    type: Sequelize.INTEGER,
     allowNull: false
   }
 })
