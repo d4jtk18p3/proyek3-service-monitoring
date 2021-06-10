@@ -34,6 +34,14 @@ const Subtugas = db.define('Subtugas', {
   },
   tenggat: {
     type: Sequelize.DATE
+  },
+  id_tugas: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  id_studi: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   }
 })
 

@@ -37,7 +37,6 @@ module.exports = {
         'id_studi', {
             type: Sequelize.INTEGER,
             allowNull: false,
-            autoIncrement: true,
             references: {
                 model: 'Studi',
                 key: 'id'
