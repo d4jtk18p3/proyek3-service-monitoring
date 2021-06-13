@@ -15,7 +15,7 @@ module.exports = {
     await queryInterface.addColumn(
         'Tugas',
         'nip', {
-            type: Sequelize.INTEGER,
+            type: Sequelize.STRING,
             allowNull: false,
             references: {
                 model: 'Dosen',
@@ -37,6 +37,7 @@ module.exports = {
         'id_studi', {
             type: Sequelize.INTEGER,
             allowNull: false,
+            autoIncrement: true,
             references: {
                 model: 'Studi',
                 key: 'id'

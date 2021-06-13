@@ -6,8 +6,7 @@ module.exports = {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
+        primaryKey: true
       },
       nama_tugas: {
         type: Sequelize.STRING,
@@ -48,10 +47,10 @@ module.exports = {
         type: Sequelize.DATE
       },
       skala_pemahaman: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       catatan: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       lampiran: {
         type: Sequelize.STRING

@@ -18,7 +18,7 @@ module.exports = {
     })
     await queryInterface.createTable('Tata_Usaha', {
       nip: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         primaryKey: true
       },
@@ -31,7 +31,7 @@ module.exports = {
     })
     await queryInterface.createTable('Dosen', {
       nip: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         primaryKey: true
       },
@@ -45,7 +45,7 @@ module.exports = {
 
     await queryInterface.createTable('Menjabat', {
       nip: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Dosen',
@@ -71,7 +71,7 @@ module.exports = {
         primaryKey: true
       },
       nip: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Dosen',
@@ -88,7 +88,7 @@ module.exports = {
         primaryKey: true
       },
       nip: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Dosen',
@@ -158,7 +158,7 @@ module.exports = {
         }
       },
       nip: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Dosen',
@@ -200,7 +200,7 @@ module.exports = {
 
     await queryInterface.createTable('Mahasiswa', {
       nim: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         primaryKey: true
       },
@@ -247,7 +247,7 @@ module.exports = {
         },
       },
       id_mahasiswa: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Mahasiswa',
@@ -260,7 +260,7 @@ module.exports = {
 
     await queryInterface.createTable('Pengajar', {
       nip: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Dosen',
