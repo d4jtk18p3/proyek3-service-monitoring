@@ -21,7 +21,7 @@ const Subtugas = db.define('Subtugas', {
     type: Sequelize.STRING
   },
   catatan: {
-    type: Sequelize.INTEGER
+    type: Sequelize.STRING
   },
   lampiran: {
     type: Sequelize.STRING

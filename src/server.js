@@ -1,26 +1,28 @@
 import express from 'express'
-import morgan from 'morgan'
-import cors from 'cors'
-import bodyParser from 'body-parser'
+// import morgan from 'morgan'
+// import cors from 'cors'
+// import bodyParser from 'body-parser'
 
 // import keycloak from './middleware/keycloak'
-import dosenRouter from './routes/Dosen'
-import mahasiswaRouter from './routes/Mahasiswa'
+// import dosenRouter from './routes/Dosen'
+// import mahasiswaRouter from './routes/Mahasiswa'
 // import userRouter from './routes/User'
 import tugasRouter from './routes/Tugas'
+import subtugasRouter from './routes/Subtugas'
 
 const app = express()
-app.use(cors())
+// app.use(cors())
 // Non aktifkan dulu keycloak agar tidak ada validasi token
 // app.use(keycloak.middleware())
 // app.use(keycloak.protect())
-app.use(bodyParser.json())
-app.use(morgan('dev'))
+// app.use(bodyParser.json())
+// app.use(morgan('dev'))
 // app.use('/dosen', dosenRouter)
 // app.use('/mahasiswa', mahasiswaRouter)
 // app.use('/user', userRouter)
 // app.use('/api/tugas-nip', tugasRouter)
 app.use('/api/tugas-id', tugasRouter)
+app.use('/api/subtugas-id', subtugasRouter)
 // error handling
 app.use((error, req, res, next) => {
   console.log(error)
