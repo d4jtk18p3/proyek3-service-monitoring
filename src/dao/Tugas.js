@@ -4,7 +4,7 @@ import sequelize from '../db.js'
 export const findAllTugasByIdPerkuliahan = async (id) => {
     try {
       const tugas = await Tugas.findAll({
-        order: [['id', 'ASC']]
+        order: [['id_perkuliahan', 'ASC']]
       })
       return tugas
     } catch (error) {

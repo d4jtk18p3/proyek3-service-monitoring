@@ -5,7 +5,7 @@ export const getAlltugas = async (req, res, next) => {
   try{
       const tugas = await TugasDAO.findAllTugasByIdPerkuliahan()
       res.status(200).json({
-          message: 'get all perkuliahan success',
+          message: 'get all tugas perkuliahan success',
           data: {
               tugas
           }
