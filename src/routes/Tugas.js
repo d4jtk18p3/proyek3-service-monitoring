@@ -7,5 +7,5 @@ const router = express.Router()
 // router.post('/tugas-baru', ValidatorSanitizer.postNewTugas, TugasController.postNewTugas)
 // router.get('/tugas/:id_tugas', TugasController.getTugasById)
 // router.get('/tugas/:nip', TugasController.getTugasBynip)
-router.get('/tugas/:id_perkuliahan', TugasController.getSubTugasById)
+router.get('/tugas/:id_perkuliahan', TugasController.getAlltugas)
 export default router
