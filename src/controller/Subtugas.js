@@ -50,20 +50,18 @@ export const getSubtugasByTugas = async (req, res, next) => {
         const id_tugas = req.params.id_tugas
         var subtugas = await SubtugasDAO.findSubtugasByTugas(id_tugas)
         var listSubtugas = []
-        var i,j,k
-        for(k=0; k<10; k++){
-            for(i=0; i < subtugas.length; i++){
-                for (j=i+1; j <subtugas.length; j++){
-                    if (subtugas[i].nama_subtugas == subtugas[j].nama_subtugas){
-                        subtugas.splice(j+1, 1)
-                    }
-                }
-            }
-        }
+        const seen = new Set();
+
+        const uniqueSubtugas = subtugas.filter(data => {
+            const duplicate = seen.has(data.nama_subtugas);
+            seen.add(data.nama_subtugas);
+            return !duplicate;
+        });
+
         res.status(200).json({
             message: 'get subtugas by tugas sukses',
             data: {
-                subtugas
+                uniqueSubtugas
             }
         })
     }
