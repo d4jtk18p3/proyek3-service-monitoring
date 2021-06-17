@@ -5,6 +5,7 @@ import * as PerkuliahaDAO from '../dao/Perkuliahan'
 import * as MahasiswaDAO from '../dao/Mahasiswa'
 import { validationResult } from 'express-validator/check'
 import Subtugas from '../models/Subtugas'
+import Tugas from '../models/Tugas'
 
 export const postNewSubtugas = async (req, res, next) => {
     try {
@@ -49,7 +50,6 @@ export const getSubtugasByTugas = async (req, res, next) => {
     try {
         const id_tugas = req.params.id_tugas
         var subtugas = await SubtugasDAO.findSubtugasByTugas(id_tugas)
-        var listSubtugas = []
         const seen = new Set();
 
         const uniqueSubtugas = subtugas.filter(data => {
@@ -62,6 +62,38 @@ export const getSubtugasByTugas = async (req, res, next) => {
             message: 'get subtugas by tugas sukses',
             data: {
                 uniqueSubtugas
+            }
+        })
+    }
+    catch (error) {
+        next(error)
+    }
+}
+
+export const updateSubtugasById = async (req, res, next) => {
+    try {
+        const id_subtugas = req.params.id
+        const subtugas = await SubtugasDAO.findSubtugasById(id_subtugas)
+        const listSubtugas = await SubtugasDAO.findSubtugasByTugas(subtugas.id_tugas)
+        var listIdSubtugas = []
+        var i
+        var listUpdatedSubtugas = []
+        var updatedSubtugas
+        for (i = 0; i < listSubtugas.length; i++){
+            listIdSubtugas.push(listSubtugas[i].id)
+        }
+        const now = new Date()
+        const updatedAt = now
+        const nama_subtugas = req.body.nama_subtugas
+        const tenggat = req.body.tenggat
+        for (i=0; i<listIdSubtugas.length; i++){
+            updatedSubtugas = await SubtugasDAO.UpdateOneSubtugas(listIdSubtugas[i], nama_subtugas, tenggat, updatedAt)
+            listUpdatedSubtugas.push(updatedSubtugas)
+        }
+        res.status(200).json({
+            message: 'update subtugas by id sukses',
+            data: {
+                listUpdatedSubtugas
             }
         })
     }
