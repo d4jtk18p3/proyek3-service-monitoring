@@ -3,7 +3,8 @@ import * as TugasDAO from '../dao/Tugas'
 
 export const getAlltugas = async (req, res, next) => {
   try{
-      const tugas = await TugasDAO.findAllTugasByIdPerkuliahan()
+      const {id_perkuliahan} = req.params
+      const tugas = await TugasDAO.findAllTugasByIdPerkuliahan(id_perkuliahan)
       res.status(200).json({
           message: 'get all tugas perkuliahan success',
           data: {

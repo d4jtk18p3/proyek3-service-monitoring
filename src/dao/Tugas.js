@@ -1,14 +1,16 @@
 import Tugas from '../models/Tugas'
 import sequelize from '../db.js'
 
-export const findAllTugasByIdPerkuliahan = async (id) => {
+export const findAllTugasByIdPerkuliahan = async (id_perkuliahan) => {
     try {
       const tugas = await Tugas.findAll({
-        order: [['id_perkuliahan', 'ASC']]
+        where: {
+            id_perkuliahan
+        }
       })
       return tugas
     } catch (error) {
-      return Promise.reject(new Error('Get all tugas'))
+      console.log(error)
     }
   }
 
