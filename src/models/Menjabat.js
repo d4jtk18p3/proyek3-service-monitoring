@@ -3,7 +3,7 @@ import db from '../db'
 
 const Menjabat = db.define('Menjabat', {
   nip: {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING,
     allowNull: false
   },
   id_jabatan: {

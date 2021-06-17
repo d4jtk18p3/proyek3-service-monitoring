@@ -10,6 +10,10 @@ import bodyParser from 'body-parser'
 import tugasRouter from './routes/Tugas'
 import subtugasRouter from './routes/Subtugas'
 import perkuliahanRouter from './routes/Perkuliahan'
+import dosenRouter from './routes/Dosen'
+import mahasiswaRouter from './routes/Mahasiswa'
+import userRouter from './routes/User'
+import monitoringRouter from './routes/Monitoring'
 
 const app = express()
 // app.use(cors())
@@ -26,6 +30,10 @@ app.use('/api/tugas-id', tugasRouter)
 app.use('/api/subtugas-id', subtugasRouter)
 app.use('/api/subtugasLampiran-id', subtugasRouter)
 app.use('/api/perkuliahan-id', perkuliahanRouter)
+app.use('/dosen', dosenRouter)
+app.use('/mahasiswa', mahasiswaRouter)
+app.use('/user', userRouter)
+app.use('/monitoring', monitoringRouter)
 // error handling
 app.use((error, req, res, next) => {
   console.log(error)

@@ -15,10 +15,10 @@ const Subtugas = db.define('Subtugas', {
     type: Sequelize.INTEGER
   },
   durasi: {
-    type: Sequelize.DATE
+    type: Sequelize.INTEGER
   },
   skala_pemahaman: {
-    type: Sequelize.STRING
+    type: Sequelize.INTEGER
   },
   catatan: {
     type: Sequelize.STRING
@@ -30,10 +30,18 @@ const Subtugas = db.define('Subtugas', {
     type: Sequelize.DATE
   },
   status_subtugas: {
-    type: Sequelize.STRING
+    type: Sequelize.BOOLEAN
   },
   tenggat: {
     type: Sequelize.DATE
+  },
+  id_tugas: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  id_studi: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   }
 })
 

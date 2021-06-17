@@ -7,13 +7,43 @@ export const findAllTugasByIdPerkuliahan = async (id_perkuliahan) => {
         where: {
             id_perkuliahan
         }
-      })
-      return tugas
-    } catch (error) {
-      console.log(error)
-    }
+    })
+    return tugas
+  } catch (error) {
+    console.log(error)
   }
+}
 
+export const insertOneTugas = async (
+    nama_tugas,
+    status_progress,
+    status_durasi,
+    status_skala,
+    status_catatan,
+    status_lampiran,
+    createdAt,
+    updatedAt,
+    id_perkuliahan,
+    nip
+    ) => {
+        try {
+            const tugas = await Tugas.create({
+                nama_tugas,
+                status_progress,
+                status_durasi,
+                status_skala,
+                status_catatan,
+                status_lampiran,
+                createdAt,
+                updatedAt,
+                id_perkuliahan,
+                nip
+            })
+            return tugas
+        }
+            catch (error) {
+            console.error(error)
+            }
 // export const insertOneTugas = async (
 //     id_tugas,
 //     nama_tugas,
@@ -77,3 +107,27 @@ export const findAllTugasByIdPerkuliahan = async (id_perkuliahan) => {
 //         return Promise.reject(new Error('Find tugas by id gagal'))
 //     }
 // }
+
+export const findTugasById = async (id_tugas) => {
+    try {
+        const tugas = await Tugas.findByPk(id_tugas)
+        return tugas
+    }
+    catch (error) {
+        return Promise.reject(new Error('Find tugas by id gagal'))
+    }
+}
+
+export const findTugasByPerkuliahan = async (id) => {
+    try {
+        const tugas = await Tugas.findAll({
+            where: {
+              id_perkuliahan: id
+            }
+          })
+        return tugas
+    }
+    catch (error) {
+        return Promise.reject(new Error('Find tugas by id gagal'))
+    }
+}

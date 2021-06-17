@@ -5,7 +5,8 @@ const Tugas = db.define('Tugas', {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true
   },
   nama_tugas: {
     type: Sequelize.STRING,
@@ -25,6 +26,14 @@ const Tugas = db.define('Tugas', {
   },
   status_lampiran: {
     type: Sequelize.BOOLEAN
+  },
+  id_perkuliahan: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  nip: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   }
 })
 
