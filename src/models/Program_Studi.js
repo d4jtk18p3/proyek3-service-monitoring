@@ -8,7 +8,7 @@ const Prodi = db.define('Program_Studi', {
     primaryKey: true
   },
   nip: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false
   },
   kode_jurusan: {

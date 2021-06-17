@@ -4,7 +4,7 @@ import db from '../db'
 
 const Pengajar = db.define('Pengajar', {
   nip: {
-    type: Sequelize.STRING(30),
+    type: Sequelize.STRING,
     allowNull: false
   },
   id_perkuliahan: {

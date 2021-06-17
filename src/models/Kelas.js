@@ -13,7 +13,7 @@ const Kelas = db.define('Kelas', {
     allowNull: false
   },
   nip: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false
   },
   tahun: {

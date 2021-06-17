@@ -15,13 +15,13 @@ const Subtugas = db.define('Subtugas', {
     type: Sequelize.INTEGER
   },
   durasi: {
-    type: Sequelize.DATE
+    type: Sequelize.INTEGER
   },
   skala_pemahaman: {
-    type: Sequelize.STRING
+    type: Sequelize.INTEGER
   },
   catatan: {
-    type: Sequelize.INTEGER
+    type: Sequelize.STRING
   },
   lampiran: {
     type: Sequelize.STRING
@@ -30,7 +30,7 @@ const Subtugas = db.define('Subtugas', {
     type: Sequelize.DATE
   },
   status_subtugas: {
-    type: Sequelize.STRING
+    type: Sequelize.BOOLEAN
   },
   tenggat: {
     type: Sequelize.DATE

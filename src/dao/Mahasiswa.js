@@ -17,7 +17,7 @@ export const findOneMahasiswaByNIM = async (nim) => {
 export const findAllMahasiswa = async () => {
   try {
     const mahasiswa = await Mahasiswa.findAll({
-      order: [['NIM', 'ASC']]
+      order: [['nim', 'ASC']]
     })
     return mahasiswa
   } catch (error) {
