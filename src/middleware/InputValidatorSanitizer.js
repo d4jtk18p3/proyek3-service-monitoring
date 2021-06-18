@@ -89,7 +89,7 @@ export const postNewTugas = [
 
 export const postNewSubtugas = [
   body('nama_subtugas', 'nama_subtugas wajib diisi').exists(),
-  body('tenggat', 'tenggat wajib diisi').isDate().exists(),
+  body('tenggat', 'tenggat wajib diisi').exists(),
   body('id_tugas', 'id_subtugas wajib diisi').exists(),
   body('id_tugas').custom((value) => {
     return TugasDAO.findTugasById(value).then((tugas) => {
