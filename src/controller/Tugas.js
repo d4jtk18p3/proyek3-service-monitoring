@@ -73,7 +73,10 @@ export const getTugasByMatkul = async (req, res, next) => {
           var tugas = await TugasDAO.findTugasByPerkuliahan(perkuliahan[i].id)
           for (j = 0; j < tugas.length; j++){
             if (tugas[j].id_perkuliahan == id_perkuliahan){
-              listTugas.push(tugas[j].nama_tugas)
+              listTugas.push({
+                id_tugas: tugas[j].id,
+                nama_tugas: tugas[j].nama_tugas
+              })
             }
           }
         }
@@ -134,7 +137,7 @@ export const getKriteriaOfTugas = async (req, res, next) => {
       skala = tugas.status_skala
       catatan = tugas.status_catatan
       lampiran = tugas.status_lampiran
-      
+
       res.status(200).json({
           message: 'get kriteria by tugas sukses',
           data: {
