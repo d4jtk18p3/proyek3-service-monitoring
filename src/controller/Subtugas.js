@@ -3,7 +3,7 @@ import * as SubtugasDAO from '../dao/Subtugas'
 export const updateSubtugas = async (req, res, next) => {
   try {
     const { id } = req.params
-    const UpdateSubtugas = await SubtugasDAO.updateSubtugas(id, req.body.Progress, req.body.skalaPemahaman, req.body.Catatan)
+    const UpdateSubtugas = await SubtugasDAO.updateSubtugas(id, req.body.progress, req.body.skala_pemahaman, req.body.catatan)
     if (UpdateSubtugas === 1) {
       const subtugas = await SubtugasDAO.findOneSubtugasById(id)
       res.status(200).json({
