@@ -27,3 +27,14 @@ export const findPerkuliahanById = async (id) => {
       return Promise.reject(new Error('Find Perkuliahan by id gagal'))
     }
   }
+
+  export const findAllPerkuliahanById = async (id) => {
+    try {
+      const perkuliahan = await Perkuliahan.findAll({
+        order: [['id', 'ASC']]
+      })
+      return perkuliahan
+    } catch (error) {
+      return Promise.reject(new Error('Get all Perkuliahan'))
+    }
+  }

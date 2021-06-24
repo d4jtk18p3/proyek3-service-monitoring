@@ -62,3 +62,56 @@ export const UpdateOneSubtugas = async (id_subtugas, nama_subtugas, tenggat, upd
     return Promise.reject(new Error('Update subtugas gagal'))
   }
 }
+
+export const updateSubtugas = async (id, Progress, skalaPemahaman, Catatan) => {
+  try {
+    const subtugas = await Subtugas.update(
+      {
+        progress: Progress,
+        skala_pemahaman: skalaPemahaman,
+        catatan: Catatan,
+      },
+      {
+        where: {
+          id
+        },
+        silent: true
+      }
+    )
+    return subtugas[0]
+  } catch (error) {
+      console.error(error)
+  }
+}
+
+export const updateSubtugasLampiran = async (id, Lampiran) => {
+  try {
+    const subtugas = await Subtugas.update(
+      {
+        lampiran: Lampiran
+      },
+      {
+        where: {
+          id
+        },
+        silent: true
+      }
+    )
+    return subtugas[0]
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const findOneSubtugasById = async (id) => {
+  try {
+    const subtugas = await Subtugas.findAll({
+      where: {
+        id
+      }
+    })
+    return subtugas[0]
+  } catch (error) {
+    console.error(error)
+  }
+}
