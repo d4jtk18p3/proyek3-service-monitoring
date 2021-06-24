@@ -101,3 +101,42 @@ export const updateSubtugasById = async (req, res, next) => {
         next(error)
     }
 }
+
+export const getSubtugasByTugasandMahasiswa = async (req, res, next) => {
+    try {
+        const id_tugas = req.params.id_tugas
+        const nim = req.params.nim
+        var subtugas = await SubtugasDAO.findSubtugasByTugas(id_tugas)
+        var listStudi = await StudiDAO.findStudiByIdMahasiswa(nim)
+        var i, j
+        var listSubtugas = []
+        var listIdStudi = []
+        for (i=0; i<listStudi.length; i++){
+            listIdStudi.push(listStudi[i].id)
+        }
+        for (i=0; i<listIdStudi.length; i++){
+            for (j=0; j<subtugas.length; j++){
+                if (listIdStudi[i] == subtugas[j].id_studi){
+                    listSubtugas.push(subtugas[j])
+                }
+            }
+        }
+        const seen = new Set();
+
+        const uniqueSubtugas = listSubtugas.filter(data => {
+            const duplicate = seen.has(data.nama_subtugas);
+            seen.add(data.nama_subtugas);
+            return !duplicate;
+        });
+
+        res.status(200).json({
+            message: 'get subtugas by tugas dan mahasiswa sukses',
+            data: {
+                uniqueSubtugas
+            }
+        })
+    }
+    catch (error) {
+        next(error)
+    }
+}
