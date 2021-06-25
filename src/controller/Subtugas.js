@@ -6,6 +6,7 @@ import * as MahasiswaDAO from '../dao/Mahasiswa'
 import { validationResult } from 'express-validator/check'
 import Subtugas from '../models/Subtugas'
 import Tugas from '../models/Tugas'
+import moment from 'moment';
 
 export const postNewSubtugas = async (req, res, next) => {
     try {
@@ -34,6 +35,11 @@ export const getSubtugasById = async (req, res, next) => {
     try {
         const id_subtugas = req.params.id_subtugas
         const subtugas = await SubtugasDAO.findSubtugasById(id_subtugas)
+        var i
+        //var NowMoment = moment()
+        for (i=0; i<subtugas.length; i++){
+            subtugas[i].tenggat = moment(subtugas[i].tenggat).format("YYY-MM-DD hh:mm:ss")
+        }
         res.status(200).json({
             message: 'get subtugas by id sukses',
             data: {
@@ -80,7 +86,9 @@ export const updateSubtugasById = async (req, res, next) => {
         var listUpdatedSubtugas = []
         var updatedSubtugas
         for (i = 0; i < listSubtugas.length; i++){
-            listIdSubtugas.push(listSubtugas[i].id)
+            if (listSubtugas[i].nama_subtugas == subtugas.nama_subtugas){
+                listIdSubtugas.push(listSubtugas[i].id)
+            }
         }
         const now = new Date()
         const updatedAt = now
