@@ -56,3 +56,17 @@ export const findTugasByPerkuliahan = async (id) => {
         return Promise.reject(new Error('Find tugas by id gagal'))
     }
 }
+
+// export const findTugasByIdMahasiswa = async (id_mahasiswa) => {
+//     try {
+//         const tugas = await Tugas.findAll({
+//             where: {
+//                 id_mahasiswa
+//             }
+//         })
+//         return tugas
+//     }
+//     catch (error) {
+//         return Promise.reject(new Error('Find tugas by id gagal'))
+//     }
+// }

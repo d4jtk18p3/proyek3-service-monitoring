@@ -21,6 +21,6 @@ router.get('/common/getKriteria/:id', TugasController.getKriteriaOfTugas)
 router.put('/common/updateSubtugas/:id', SubtugasController.updateSubtugasById)
 router.put('/updateSubtugas-mahasiswa/:id', SubtugasController.updateSubtugas)
 router.put('/updateSubtugasLampiran-mahasiswa/:id', SubtugasController.updateSubtugasLampiran)
-router.put('/perkuliahan-mahasiswa/:id', PerkuliahanController.getAllPerkuliahan)
+router.get('/perkuliahan-mahasiswa/:id', PerkuliahanController.getAllPerkuliahan)
 
 export default router
