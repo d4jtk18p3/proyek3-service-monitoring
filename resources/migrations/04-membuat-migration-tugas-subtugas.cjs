@@ -60,7 +60,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       status_subtugas: {
-        type: Sequelize.STRING
+        type: Sequelize.BOOLEAN
       },
       tenggat: {
         type: Sequelize.DATE

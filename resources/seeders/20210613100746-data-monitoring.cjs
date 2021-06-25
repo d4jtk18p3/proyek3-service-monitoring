@@ -20,7 +20,36 @@ module.exports = {
     )
     await queryInterface.sequelize.query(
       `insert into "Subtugas" (nama_subtugas, status_subtugas, id_tugas, id_studi)
-      values ('subtugas1', 'selesai', 1, 1)`
+      values ('Another Type of Employee', false, 1, 1),
+      ('Painting Shapes', false, 1, 1),
+      ('Polymorphic Sorting', false, 1, 1),
+      ('Searching and Sorting an Integer List', false, 1, 1),
+      ('Timing Searching and Sorting Algorithms', false, 1, 1),
+      ('Coloring a Moveable Circle', false, 1, 1),
+      ('Speed Control', false, 1, 1),
+      ('Adapter', false, 2, 1),
+      ('Bridge', false, 2, 1),
+      ('Composite', false, 2, 1),
+      ('Decorator', false, 2, 1),
+      ('Facade', false, 2, 1),
+      ('Flyweight', false, 2, 1),
+      ('Proxy', false, 2, 1),
+      ('Abstract Factory', false, 2, 1),
+      ('Builder', false, 2, 1),
+      ('Factory Method', false, 2, 1),
+      ('Prototype', false, 2, 1),
+      ('Singleton', false, 2, 1),
+      ('Memento', false, 2, 1),
+      ('Observer', false, 2, 1),
+      ('State', false, 2, 1),
+      ('Strategy', false, 2, 1),
+      ('Template Method', false, 2, 1),
+      ('Visitor', false, 2, 1),
+      ('Chain of Responsibility', false, 2, 1),
+      ('Command', false, 2, 1),
+      ('Interpreter', false, 2, 1),
+      ('Iterator', false, 2, 1),
+      ('Mediator', false, 2, 1)`
     )
   },
 
