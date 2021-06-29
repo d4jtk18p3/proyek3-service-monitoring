@@ -75,6 +75,23 @@ export const getAllTugasMahasiswa = async (nim) => {
     }
   }
 
+  export const getAllTugasMahasiswaByid_tugas = async(id_tugas) => {
+      try {
+          const result = await db.query(`
+          SELECT mahasiswa.nim FROM "Tugas" tugas
+          INNER JOIN "Perkuliahan" perkuliahan ON perkuliahan.id = tugas.id_perkuliahan
+          INNER JOIN "Studi" studi ON studi.id_perkuliahan = perkuliahan.id
+          INNER JOIN "Mahasiswa" mahasiswa ON mahasiswa.nim = studi.id_mahasiswa
+          WHERE tugas.id=${id_tugas};
+          `)
+          const mahasiswa = result[0]
+          return mahasiswa
+      }
+      catch (error) {
+          return Promise.reject(error)
+      }
+  }
+
 // export const findTugasByIdMahasiswa = async (id_mahasiswa) => {
 //     try {
 //         const tugas = await Tugas.findAll({

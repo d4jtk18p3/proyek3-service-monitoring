@@ -1,6 +1,7 @@
 import * as PengajarDAO from '../dao/Pengajar'
 import * as PerkuliahaDAO from '../dao/Perkuliahan'
 import * as MatkulDAO from '../dao/Mata Kuliah'
+import * as MahasiswaDAO from '../dao/Mahasiswa'
 import * as KelasDAO from '../dao/Kelas'
 import { validationResult } from 'express-validator/check'
 
@@ -35,5 +36,21 @@ export const getMatkulAjarByDosen = async (req, res) => {
     }
     catch (error) {
         res.status(error.status).json({ error })
+    }
+}
+
+export const getAllMatkulLearnedByMahasiswa = async(req, res) => {
+    const nim = req.params.nim
+    try {
+        const matkul = await MatkulDAO.getAllMatkulLearnedByMahasiswa(nim)
+        res.json({
+            message: 'Get All Matkul yang dipelajari mahasiswa berhasil',
+            data: {
+                matkul
+            }
+        })
+    }
+    catch (error) {
+        res.status(error.status).json ({ error })
     }
 }

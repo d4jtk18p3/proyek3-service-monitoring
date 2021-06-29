@@ -61,6 +61,22 @@ export const getAllTugasMahasiswa = async (req, res) => {
   }
 }
 
+export const getAllTugasMahasiswaByid_tugas = async (req, res) => {
+  const id_tugas = req.params.id
+  try {
+    const mahasiswa = await TugasDAO.getAllTugasMahasiswaByid_tugas(id_tugas)
+    res.json({
+      message: 'Get All Tugas Mahasiswa by id tugas berhasil',
+      data: {
+        mahasiswa
+      }
+    })
+  }
+  catch (error) {
+    res.status(error.status).json ({ error })
+  }
+}
+
 export const getTugasById = async (req, res, next) => {
     try {
         const id_tugas = req.params.id

@@ -21,7 +21,10 @@ router.get('/common/getKriteria/:id', TugasController.getKriteriaOfTugas)
 router.put('/common/updateSubtugas/:id', SubtugasController.updateSubtugasById)
 router.put('/updateSubtugas-mahasiswa/:id', SubtugasController.updateSubtugas)
 router.put('/updateSubtugasLampiran-mahasiswa/:id', SubtugasController.updateSubtugasLampiran)
+router.get('/common/getSubtugasByMahasiswa/:nim', SubtugasController.getSubtugasByMahasiswa)
 router.get('/perkuliahan-mahasiswa/:id', PerkuliahanController.getAllPerkuliahan)
 router.get('/common/getAllTugasMahasiswa/:nim', TugasController.getAllTugasMahasiswa)
+router.get('/common/getAllTugasMahasiswaByid_tugas/:id', TugasController.getAllTugasMahasiswaByid_tugas)
+router.get('/commom/getAllMatkulLearnedByMahasiswa/:nim', MatkulController.getAllMatkulLearnedByMahasiswa)
 
 export default router

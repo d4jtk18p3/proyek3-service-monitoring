@@ -1,5 +1,6 @@
 import Subtugas from '../models/Subtugas'
 import sequelize from '../db.js'
+import db from '../db'
 
 export const insertOneSubtugas = async (
     nama_subtugas,
@@ -113,5 +114,21 @@ export const findOneSubtugasById = async (id) => {
     return subtugas[0]
   } catch (error) {
     console.error(error)
+  }
+}
+
+export const getSubtugasByMahasiswa = async (nim) => {
+  try {
+    const result = await db.query(`
+    SELECT subtugas.* FROM "Mahasiswa" mahasiswa
+    INNER JOIN "Studi" studi ON studi.id_mahasiswa = mahasiswa.nim
+    INNER JOIN "Subtugas" subtugas ON subtugas.id_studi = studi.id
+    WHERE mahasiswa.nim='${nim}';
+    `)
+    const tugas = result[0]
+    return tugas
+  }
+  catch (error) {
+    return Promise.reject(error)
   }
 }

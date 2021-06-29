@@ -147,3 +147,19 @@ export const updateSubtugasLampiran = async (req, res, next) => {
       next(error)
     }
 }
+
+export const getSubtugasByMahasiswa = async(req, res) => {
+  const nim = req.params.nim
+  try {
+    const subtugas = await SubtugasDAO.getSubtugasByMahasiswa(nim)
+    res.json({
+      message: 'Get Subtugas by nim berhasil',
+      data: {
+        subtugas
+      }
+    })
+  }
+  catch(error) {
+    res.status(error.status).json ({ error })
+  }
+}
