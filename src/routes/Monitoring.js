@@ -22,5 +22,6 @@ router.put('/common/updateSubtugas/:id', SubtugasController.updateSubtugasById)
 router.put('/updateSubtugas-mahasiswa/:id', SubtugasController.updateSubtugas)
 router.put('/updateSubtugasLampiran-mahasiswa/:id', SubtugasController.updateSubtugasLampiran)
 router.get('/perkuliahan-mahasiswa/:id', PerkuliahanController.getAllPerkuliahan)
+router.get('/common/getAllTugasMahasiswa/:nim', TugasController.getAllTugasMahasiswa)
 
 export default router

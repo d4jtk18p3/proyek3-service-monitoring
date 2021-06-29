@@ -1,12 +1,13 @@
 import Tugas from '../models/Tugas'
 import sequelize from '../db.js'
+import db from '../db'
 
 export const insertOneTugas = async (
     nama_tugas,
     status_progress,
     status_durasi,
     status_skala,
-    status_catatan,
+    status_catatan, 
     status_lampiran,
     createdAt,
     updatedAt,
@@ -56,6 +57,23 @@ export const findTugasByPerkuliahan = async (id) => {
         return Promise.reject(new Error('Find tugas by id gagal'))
     }
 }
+
+export const getAllTugasMahasiswa = async (nim) => {
+    try {
+      const result = await db.query(`
+      SELECT tugas.* FROM "Mahasiswa" mahasiswa
+      INNER JOIN "Studi" studi ON studi.id_mahasiswa = mahasiswa.nim
+      INNER JOIN "Subtugas" subtugas ON subtugas.id_studi = studi.id
+      INNER JOIN "Tugas" tugas ON tugas.id = subtugas.id_tugas
+      WHERE mahasiswa.nim='${nim}';
+      `)
+      const tugas = result[0]
+      return tugas
+    }
+    catch (error) {
+        return Promise.reject(error)
+    }
+  }
 
 // export const findTugasByIdMahasiswa = async (id_mahasiswa) => {
 //     try {

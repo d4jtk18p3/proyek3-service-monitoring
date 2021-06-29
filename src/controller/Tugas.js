@@ -46,6 +46,21 @@ export const postNewTugas = async (req, res, next) => {
   }
 }
 
+export const getAllTugasMahasiswa = async (req, res) => {
+  const nim = req.params.nim
+  try {
+    const tugas = await TugasDAO.getAllTugasMahasiswa(nim)
+    res.json({
+      message: `Get All Tugas ${nim}`,
+      data: {
+        tugas
+      }
+    })
+  } catch (error) {
+    res.status(error.status).json({ error })
+  }
+}
+
 export const getTugasById = async (req, res, next) => {
     try {
         const id_tugas = req.params.id
