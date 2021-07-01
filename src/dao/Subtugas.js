@@ -4,6 +4,7 @@ import sequelize from '../db.js'
 export const insertOneSubtugas = async (
     nama_subtugas,
     tenggat,
+    status_subtugas,
     createdAt,
     updatedAt,
     id_tugas,
@@ -13,6 +14,7 @@ export const insertOneSubtugas = async (
             const subtugas = await Subtugas.create({
                 nama_subtugas,
                 tenggat,
+                status_subtugas,
                 createdAt,
                 updatedAt,
                 id_tugas,

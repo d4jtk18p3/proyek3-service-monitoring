@@ -12,13 +12,14 @@ export const postNewSubtugas = async (req, res, next) => {
     try {
     const {nama_subtugas, tenggat, id_tugas, id_studi } = req.body
     const now = new Date()
+    const status_subtugas = false
     const { createdAt, updatedAt} = now
     const error = validationResult(req)
     if (!error.isEmpty()) {
         error.status = 400
         throw error
     }
-    const subtugas = await SubtugasDAO.insertOneSubtugas(nama_subtugas, tenggat, createdAt, updatedAt, id_tugas, id_studi)
+    const subtugas = await SubtugasDAO.insertOneSubtugas(nama_subtugas, tenggat, status_subtugas, createdAt, updatedAt, id_tugas, id_studi)
     res.status(200).json({
         message: 'insert subtugas sukses',
         data: {

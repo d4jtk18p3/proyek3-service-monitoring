@@ -45,7 +45,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       durasi: {
-        type: Sequelize.DATE
+        type: Sequelize.INTEGER
       },
       skala_pemahaman: {
         type: Sequelize.STRING
