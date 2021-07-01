@@ -8,7 +8,6 @@ export const getKelasAjarByDosen = async (req, res) => {
         const nip = req.params.nip
         const pengajar = await PengajarDAO.findPengajarByNIP(nip)
         var i
-        var j
         var listIdPerkuliahan = []
         var listKelas = []
         for (i = 0; i < pengajar.length; i++){
@@ -20,7 +19,7 @@ export const getKelasAjarByDosen = async (req, res) => {
             var kelas = await KelasDAO.findKelasByKodeKelas(perkuliahan.kode_kelas)
             listKelas.push(kelas)
         }
-        
+
         const seen = new Set();
 
         const uniqueClass = listKelas.filter(data => {

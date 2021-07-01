@@ -22,3 +22,16 @@ export const findStudiByIdPerkuliahan = async (idPerkuliahan) => {
     return Promise.reject(error)
   }
 }
+
+export const findStudiByIdMahasiswa = async (idMahasiswa) => {
+  try {
+    const studi = await Studi.findAll({
+      where: {
+        id_mahasiswa : idMahasiswa
+      }
+    })
+    return studi
+  } catch (error) {
+    return Promise.reject(error)
+  }
+}
