@@ -149,3 +149,20 @@ export const getSubtugasByTugasandMahasiswa = async (req, res, next) => {
         next(error)
     }
 }
+
+export const getAllSubtugasByTugas = async (req, res, next) => {
+    try {
+        const id_tugas = req.params.id_tugas
+        var subtugas = await SubtugasDAO.findSubtugasByTugas(id_tugas)
+
+        res.status(200).json({
+            message: 'get subtugas by tugas sukses',
+            data: {
+                subtugas
+            }
+        })
+    }
+    catch (error) {
+        next(error)
+    }
+}
