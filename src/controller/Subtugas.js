@@ -46,6 +46,20 @@ export const getSubtugasById = async (req, res, next) => {
     }
 }
 
+export const getAllSubtugas = async (req, res, next) => {
+  try{
+      const subtugas = await SubtugasDAO.findAllSubtugasById()
+      res.status(200).json({
+          message: 'get all subtugas success',
+          data: {
+              subtugas
+          }
+      })
+  } catch (error){
+      next(error)
+  }
+}
+
 export const getSubtugasByTugas = async (req, res, next) => {
     try {
         const id_tugas = req.params.id_tugas
@@ -128,8 +142,31 @@ export const updateSubtugas = async (req, res, next) => {
 export const updateSubtugasLampiran = async (req, res, next) => {
   try {
     const { id } = req.params
-    const UpdateSubtugasLampiran = await SubtugasDAO.updateSubtugasLampiran(id, req.body.Lampiran)
+    const UpdateSubtugasLampiran = await SubtugasDAO.updateSubtugasLampiran(id, req.body.lampiran)
     if(UpdateSubtugasLampiran === 1) {
+      const subtugas = await SubtugasDAO.findOneSubtugasById(id)
+      res.status(200).json({
+        message: "Subtugas Berhasil di Update",
+        data: {
+          subtugas
+        }
+      })
+    } else {
+      const error = new Error("Subtugas gagal di update")
+      error.statusCode = 500
+      error.cause = 'Subtugas gagal di update'
+      throw error
+    } 
+    }catch (error) {
+      next(error)
+    }
+}
+
+export const updateSubtugasDurasi = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const UpdateSubtugasDurasi = await SubtugasDAO.updateSubtugasDurasi(parseInt(id), req.body.durasi)
+    if(UpdateSubtugasDurasi === 1) {
       const subtugas = await SubtugasDAO.findOneSubtugasById(id)
       res.status(200).json({
         message: "Subtugas Berhasil di Update",

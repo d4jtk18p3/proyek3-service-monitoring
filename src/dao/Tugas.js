@@ -61,7 +61,7 @@ export const findTugasByPerkuliahan = async (id) => {
 export const getAllTugasMahasiswa = async (nim) => {
     try {
       const result = await db.query(`
-      SELECT tugas.* FROM "Mahasiswa" mahasiswa
+      SELECT DISTINCT tugas.* FROM "Mahasiswa" mahasiswa
       INNER JOIN "Studi" studi ON studi.id_mahasiswa = mahasiswa.nim
       INNER JOIN "Subtugas" subtugas ON subtugas.id_studi = studi.id
       INNER JOIN "Tugas" tugas ON tugas.id = subtugas.id_tugas

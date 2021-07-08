@@ -36,6 +36,17 @@ export const findSubtugasById = async (id_subtugas) => {
     }
 }
 
+export const findAllSubtugasById = async (id) => {
+  try {
+    const subtugas = await Subtugas.findAll({
+      order: [['id', 'ASC']]
+    })
+    return subtugas
+  } catch (error) {
+    return Promise.reject(new Error('Get all Perkuliahan'))
+  }
+}
+
 export const findSubtugasByTugas = async (id_tugas) => {
   try {
     const subtugas = await Subtugas.findAll({
@@ -90,6 +101,25 @@ export const updateSubtugasLampiran = async (id, Lampiran) => {
     const subtugas = await Subtugas.update(
       {
         lampiran: Lampiran
+      },
+      {
+        where: {
+          id
+        },
+        silent: true
+      }
+    )
+    return subtugas[0]
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const updateSubtugasDurasi = async (id, Durasi) => {
+  try {
+    const subtugas = await Subtugas.update(
+      {
+        durasi: Durasi
       },
       {
         where: {
