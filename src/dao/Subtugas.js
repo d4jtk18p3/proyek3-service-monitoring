@@ -50,6 +50,7 @@ export const findAllSubtugasById = async (id) => {
 export const findSubtugasByTugas = async (id_tugas) => {
   try {
     const subtugas = await Subtugas.findAll({
+      order: [['id', 'ASC']],
       where: {
         id_tugas: id_tugas
       }
@@ -153,7 +154,8 @@ export const getSubtugasByMahasiswa = async (nim) => {
     SELECT subtugas.* FROM "Mahasiswa" mahasiswa
     INNER JOIN "Studi" studi ON studi.id_mahasiswa = mahasiswa.nim
     INNER JOIN "Subtugas" subtugas ON subtugas.id_studi = studi.id
-    WHERE mahasiswa.nim='${nim}';
+    WHERE mahasiswa.nim='${nim}'
+    ORDER by subtugas.id ASC;
     `)
     const tugas = result[0]
     return tugas
