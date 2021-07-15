@@ -37,6 +37,17 @@ export const findSubtugasById = async (id_subtugas) => {
     }
 }
 
+export const findAllSubtugasById = async (id) => {
+  try {
+    const subtugas = await Subtugas.findAll({
+      order: [['id', 'ASC']]
+    })
+    return subtugas
+  } catch (error) {
+    return Promise.reject(new Error('Get all Perkuliahan'))
+  }
+}
+
 export const findSubtugasByTugas = async (id_tugas) => {
   try {
     const subtugas = await Subtugas.findAll({
@@ -62,5 +73,94 @@ export const UpdateOneSubtugas = async (id_subtugas, nama_subtugas, tenggat, upd
   }
   catch (error) {
     return Promise.reject(new Error('Update subtugas gagal'))
+  }
+}
+
+export const updateSubtugas = async (id, Progress, skalaPemahaman, Catatan) => {
+  try {
+    const subtugas = await Subtugas.update(
+      {
+        progress: Progress,
+        skala_pemahaman: skalaPemahaman,
+        catatan: Catatan,
+      },
+      {
+        where: {
+          id
+        },
+        silent: true
+      }
+    )
+    return subtugas[0]
+  } catch (error) {
+      console.error(error)
+  }
+}
+
+export const updateSubtugasLampiran = async (id, Lampiran) => {
+  try {
+    const subtugas = await Subtugas.update(
+      {
+        lampiran: Lampiran
+      },
+      {
+        where: {
+          id
+        },
+        silent: true
+      }
+    )
+    return subtugas[0]
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const updateSubtugasDurasi = async (id, Durasi) => {
+  try {
+    const subtugas = await Subtugas.update(
+      {
+        durasi: Durasi
+      },
+      {
+        where: {
+          id
+        },
+        silent: true
+      }
+    )
+    return subtugas[0]
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const findOneSubtugasById = async (id) => {
+  try {
+    const subtugas = await Subtugas.findAll({
+      where: {
+        id
+      }
+    })
+    return subtugas[0]
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const getSubtugasByMahasiswa = async (nim) => {
+  try {
+    const result = await db.query(`
+    SELECT subtugas.* FROM "Mahasiswa" mahasiswa
+    INNER JOIN "Studi" studi ON studi.id_mahasiswa = mahasiswa.nim
+    INNER JOIN "Subtugas" subtugas ON subtugas.id_studi = studi.id
+    WHERE mahasiswa.nim='${nim}'
+    ORDER by subtugas.id ASC;
+    `)
+    const tugas = result[0]
+    return tugas
+  }
+  catch (error) {
+    return Promise.reject(error)
   }
 }

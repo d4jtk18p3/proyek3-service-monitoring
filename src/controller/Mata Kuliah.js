@@ -37,3 +37,19 @@ export const getMatkulAjarByDosen = async (req, res) => {
         res.status(error.status).json({ error })
     }
 }
+
+export const getAllMatkulLearnedByMahasiswa = async(req, res) => {
+    const nim = req.params.nim
+    try {
+        const matkul = await MatkulDAO.getAllMatkulLearnedByMahasiswa(nim)
+        res.json({
+            message: 'Get All Matkul yang dipelajari mahasiswa berhasil',
+            data: {
+                matkul
+            }
+        })
+    }
+    catch (error) {
+        res.status(error.status).json ({ error })
+    }
+}
