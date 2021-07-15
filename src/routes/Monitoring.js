@@ -25,6 +25,7 @@ router.put('/updateSubtugasLampiran-mahasiswa/:id', SubtugasController.updateSub
 router.put('/updateSubtugasDurasi-mahasiswa/:id', SubtugasController.updateSubtugasDurasi)
 router.get('/common/getSubtugasByMahasiswa/:nim', SubtugasController.getSubtugasByMahasiswa)
 router.get('/perkuliahan-mahasiswa/:id', PerkuliahanController.getAllPerkuliahan)
+router.get('/common/getPerkuliahanBynimByIdMatkul/', PerkuliahanController.getPerkuliahanBynimByMatkul)
 router.get('/common/getAllTugasMahasiswa/:nim', TugasController.getAllTugasMahasiswa)
 router.get('/common/getAllTugasMahasiswaByid_tugas/:id', TugasController.getAllTugasMahasiswaByid_tugas)
 router.get('/commom/getAllMatkulLearnedByMahasiswa/:nim', MatkulController.getAllMatkulLearnedByMahasiswa)
