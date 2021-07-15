@@ -2,8 +2,6 @@ import * as PerkuliahanDAO from '../dao/Perkuliahan'
 import { validationResult } from 'express-validator/check'
 import Mahasiswa from '../models/Mahasiswa'
 import Kelas from '../models/Kelas'
-import Perkuliahan from '../models/Perkuliahan'
-import mataKuliah from '../models/Mata_Kuliah'
 
 export const getAllPerkuliahan = async (req, res, next) => {
     try{
