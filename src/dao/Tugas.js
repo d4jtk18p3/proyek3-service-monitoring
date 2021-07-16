@@ -1,5 +1,6 @@
 import Tugas from '../models/Tugas'
 import sequelize from '../db.js'
+import db from '../db'
 
 export const insertOneTugas = async (
     nama_tugas,

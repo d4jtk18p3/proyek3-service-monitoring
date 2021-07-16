@@ -1,4 +1,3 @@
-
 import Studi from '../models/Studi'
 
 export const findStudiByIdStudi = async (idStudi) => {

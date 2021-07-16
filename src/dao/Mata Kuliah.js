@@ -1,5 +1,6 @@
 import MataKuliah from '../models/Mata_Kuliah'
 import sequelize from '../db.js'
+import db from '../db'
 
 export const findMatkulById = async (id) => {
     try {

@@ -1,5 +1,6 @@
 import Subtugas from '../models/Subtugas'
 import sequelize from '../db.js'
+import db from '../db'
 
 export const insertOneSubtugas = async (
     nama_subtugas,
