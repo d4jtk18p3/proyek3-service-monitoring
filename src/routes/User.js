@@ -13,24 +13,5 @@ router.post(
 )
 router.get('/', UserController.getAllUser)
 // router.delete('/delete/:username', UserController.deleteUserbyUsername)
-router.delete(
-  '/:username',
-  ValidatorSanitizer.deleteUserbyUsername,
-  transactionMiddleware,
-  UserController.deleteUserbyUsername
-)
-
-router.put(
-  '/update-account',
-  ValidatorSanitizer.updateAccount,
-  transactionMiddleware,
-  UserController.updateAccount
-)
-
-router.post(
-  '/forget-password',
-  ValidatorSanitizer.resetPasswordRequest,
-  UserController.resetPasswordRequest
-)
 
 export default router

@@ -1,4 +1,4 @@
-import db from '@proyek3/postgres-database/db'
+import db from './db'
 import server from './server'
 
 db.authenticate()
