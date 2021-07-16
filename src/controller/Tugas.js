@@ -100,13 +100,13 @@ export const getTugasByMatkul = async (req, res, next) => {
         const perkuliahan = await PerkuliahaDAO.findPerkuliahanByMatkul(id_matkul)
         var i,j
         var listTugas = []
+        var listidTugas = []
         for (i = 0; i < perkuliahan.length; i++){
           var tugas = await TugasDAO.findTugasByPerkuliahan(perkuliahan[i].id)
           for (j = 0; j < tugas.length; j++){
             if (tugas[j].id_perkuliahan == id_perkuliahan){
-              listTugas.push({
-                id_tugas: tugas[j].id,
-                nama_tugas: tugas[j].nama_tugas})
+              listTugas.push(tugas[j].nama_tugas)
+              listidTugas.push(tugas[j].id)
             }
           }
         }
@@ -114,7 +114,8 @@ export const getTugasByMatkul = async (req, res, next) => {
             message: 'get tugas by matkul sukses',
             data: {
               perkuliahan,
-              listTugas
+              listTugas,
+              listidTugas
             }
         })
     }
