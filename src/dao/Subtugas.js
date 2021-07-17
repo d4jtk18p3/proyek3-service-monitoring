@@ -102,7 +102,8 @@ export const updateSubtugasLampiran = async (id, Lampiran) => {
   try {
     const subtugas = await Subtugas.update(
       {
-        lampiran: Lampiran
+        lampiran: Lampiran,
+        status_subtugas: true,
       },
       {
         where: {
