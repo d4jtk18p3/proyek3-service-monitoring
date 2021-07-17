@@ -51,7 +51,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       catatan: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       lampiran: {
         type: Sequelize.STRING

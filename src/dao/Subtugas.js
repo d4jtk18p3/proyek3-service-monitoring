@@ -52,6 +52,7 @@ export const findAllSubtugasById = async (id) => {
 export const findSubtugasByTugas = async (id_tugas) => {
   try {
     const subtugas = await Subtugas.findAll({
+      order: [['id','ASC']],
       where: {
         id_tugas: id_tugas
       }
