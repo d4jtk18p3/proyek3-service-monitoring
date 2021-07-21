@@ -3,17 +3,13 @@ import sequelize from '../db.js'
 import db from '../db'
 
 export const findMatkulById = async (id) => {
-    try {
-      const matkul = await MataKuliah.findAll({
-        where: {
-          id: id
-        }
-      })
-      return matkul[0]
-    } catch (error) {
-      return Promise.reject(new Error('Find Pengajar by NIP gagal'))
-    }
+  try {
+    const matkul = await MataKuliah.findByPk(id)
+    return matkul
+  } catch (error) {
+    return Promise.reject(new Error('Find Matkul by ID gagal'))
   }
+}
 
   export const getAllMatkulLearnedByMahasiswa = async(nim) => {
     try {
