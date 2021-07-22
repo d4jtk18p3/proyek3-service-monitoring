@@ -141,7 +141,7 @@ export const postNewTugas = async (req, res, next) => {
                                 <table class="col-652" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr id="content">
-                                      <table class="col-652" order="0" cellpadding="0" cellspacing="0" style="padding: 10px 80px">
+                                      <table class="col-652" order="0" cellpadding="0" cellspacing="0" style="padding: 10px 80px;background-color: #FFFFFF;">
                                         <tr>
                                           <td align="center" style="font-family: Arial, Helvetica, sans-serif; font-size:20px; color:#242424; line-height:24px; font-weight: bold;"> Tugas Baru Mata Kuliah ${namaMatkul} berjudul ${nama_tugas} </td>
                                         </tr>
@@ -149,24 +149,11 @@ export const postNewTugas = async (req, res, next) => {
                                           <td height="50"></td>
                                         </tr>
                                         <tr>
-                                          <td id="paragraph" style="font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#242424; line-height:24px; font-weight: 300; padding: 10px 40px;">
-                                          Silakan cek dengan menekan tombol dibawah ini.
-                                            <br>
+                                          <td id="paragraph" style="font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#242424; line-height:24px; font-weight: 300; padding: 10px 40px;"> Dosen Anda telah menambahkan tugas baru. <br>
+                                            <br> Silahkan cek dan isi monitoring tugasnya. <br>
                                             <br>
                                             <div align="center">
-                                              <a class="button" href="https://www.google.com/" target="_blank" style="background-color: #59DCDC;
-                                              border: none;
-                                              color: white;
-                                              padding: 10px 10px;
-                                              text-align: center;
-                                              text-decoration: none;
-                                              display: inline-block;
-                                              font-family: Arial, Helvetica, sans-serif;
-                                              font-size: 12px;
-                                              margin: 2px;
-                                              cursor: pointer;
-                                              border-radius: 8px;
-                                              width: 100px;"> Periksa Surat</a>
+                                              <a class="button" href="http://localhost:5002/monitoring/dosen/monitoring-tugas/daftar-tugas/${kodeMatkul}/${id_perkuliahan}" target="_blank" style="background-color: #59DCDC;border: none;color: white;padding: 10px 10px;text-align: center;text-decoration: none;display: inline-block;font-family: Arial, Helvetica, sans-serif;font-size: 12px;margin: 2px;cursor: pointer;border-radius: 8px;width: 100px;"> BUTTON </a>
                                             </div>
                                           </td>
                                         </tr>
