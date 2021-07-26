@@ -3,32 +3,32 @@ import sequelize from '../db.js'
 import db from '../db'
 
 export const insertOneSubtugas = async (
-    nama_subtugas,
-    tenggat,
-    status_subtugas,
-    createdAt,
-    updatedAt,
-    id_tugas,
-    id_studi
-    ) => {
-        try {
-            const subtugas = await Subtugas.create({
-                nama_subtugas,
-                tenggat,
-                status_subtugas,
-                createdAt,
-                updatedAt,
-                id_tugas,
-                id_studi
-            })
-            return subtugas
-        }
-            catch (error) {
-            console.error(error)
-        }
-    }
+  nama_subtugas,
+  tenggat,
+  status_subtugas,
+  createdAt,
+  updatedAt,
+  id_tugas,
+  id_studi
+  ) => {
+      try {
+          const subtugas = await Subtugas.create({
+              nama_subtugas,
+              tenggat,
+              status_subtugas,
+              createdAt,
+              updatedAt,
+              id_tugas,
+              id_studi
+          })
+          return subtugas
+      }
+          catch (error) {
+          console.error(error)
+      }
+  }
 
-export const findSubtugasById = async (id_subtugas) => {
+  export const findSubtugasById = async (id_subtugas) => {
     try {
         const subtugas = await Subtugas.findByPk(id_subtugas)
         return subtugas
@@ -52,6 +52,7 @@ export const findAllSubtugasById = async (id) => {
 export const findSubtugasByTugas = async (id_tugas) => {
   try {
     const subtugas = await Subtugas.findAll({
+      order: [['id','ASC']],
       where: {
         id_tugas: id_tugas
       }
@@ -102,7 +103,8 @@ export const updateSubtugasLampiran = async (id, Lampiran) => {
   try {
     const subtugas = await Subtugas.update(
       {
-        lampiran: Lampiran
+        lampiran: Lampiran,
+        status_subtugas: true,
       },
       {
         where: {
