@@ -1,4 +1,4 @@
-import { insertOneDosen } from '../dao/Dosen'
+// import { insertOneDosen } from '../dao/Dosen'
 import { insertOneMahasiswa } from '../dao/Mahasiswa'
 import { validationResult } from 'express-validator/check'
 import { getAdminClient, adminAuth } from '../config/keycloak-admin'

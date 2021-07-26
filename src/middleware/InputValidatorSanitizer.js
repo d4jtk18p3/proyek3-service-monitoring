@@ -1,5 +1,5 @@
 import { body, param } from 'express-validator'
-import * as DosenDAO from '../dao/Dosen'
+// import * as DosenDAO from '../dao/Dosen'
 import * as MahasiswaDAO from '../dao/Mahasiswa'
 import * as TugasDAO from '../dao/Tugas'
 import * as SubtugasDAO from '../dao/Subtugas'
