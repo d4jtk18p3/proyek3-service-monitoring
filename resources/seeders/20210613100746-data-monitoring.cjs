@@ -842,7 +842,7 @@ module.exports = {
     const dataTugas = parseInt((await queryInterface.sequelize.query(`SELECT COUNT(*) FROM "Tugas"`))[0][0].count)
     await queryInterface.sequelize.query(`ALTER SEQUENCE "Tugas_id_seq" RESTART WITH ${dataTugas + 1}`)
     const dataSubtugas = parseInt((await queryInterface.sequelize.query(`SELECT COUNT(*) FROM "Subtugas"`))[0][0].count)
-    await queryInterface.sequelize.query(`ALTER SEQUENCE "Perkuliahan_id_seq" RESTART WITH ${dataSubtugas + 1}`)
+    await queryInterface.sequelize.query(`ALTER SEQUENCE "Subtugas_id_seq" RESTART WITH ${dataSubtugas + 1}`)
   },
 
   down: async (queryInterface, Sequelize) => {
